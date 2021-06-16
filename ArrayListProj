@@ -1,0 +1,60 @@
+package newtest;
+
+import java.util.ArrayList;
+
+//Utilities class to add songs more easily
+class Utils{
+    //establish array list
+  private static ArrayList<String> desertIslandPlaylist = new ArrayList<String>();
+    //add song method
+  static void addSong(int ele, String song){
+    desertIslandPlaylist.add(ele, song);
+  }
+  //remove song method (overloaded)
+    static void removeSong(int index){
+        desertIslandPlaylist.remove(index);
+    }
+    static void removeSong(String songName){
+        desertIslandPlaylist.remove(songName);
+    }
+    //Swap songs
+    static void swapSongs(String song1, String song2){
+      //get indecies and store song values
+      int tempIndex1 = desertIslandPlaylist.indexOf(song1);
+      int tempIndex2 = desertIslandPlaylist.indexOf(song2);
+      String tempSong1 = song1;
+      String tempSong2 = song2;
+      //rewrite A--> B
+      desertIslandPlaylist.set(tempIndex2, tempSong1);
+      //Rewrite B --> A
+      desertIslandPlaylist.set(tempIndex1, tempSong2);
+    }
+  //print length statment
+  static void songListSize(){
+      System.out.println(desertIslandPlaylist.size());
+  }
+  static void songList(){
+      System.out.println(desertIslandPlaylist);
+  }
+}
+
+public class NewTest {
+
+  
+  public static void main(String[] args) {
+    Utils.addSong(0, "We Will Rock You");
+    Utils.addSong(1, "Papermoon");
+    Utils.addSong(2, "Sound of Silence");
+    Utils.addSong(3, "The Entertainer");
+    Utils.addSong(4, "Dark Chest of Wonders");
+    Utils.addSong(5, "Cruel Angels Thesis");
+    Utils.addSong(6, "Happy Birthday");
+    Utils.songListSize();
+    Utils.removeSong("Sound of Silence");
+    Utils.removeSong(3);
+    Utils.songListSize();
+    Utils.songList();
+    Utils.swapSongs("Cruel Angels Thesis", "Papermoon");
+    Utils.songList();
+  }
+}
