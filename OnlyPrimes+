@@ -1,0 +1,97 @@
+
+//Things add in:
+// 1) Build a method that returns an ArrayList of the first n primes in an array.
+// 2) Build a method that returns an ArrayList of the first n Fibonacci numbers.
+
+// Import statement:
+import java.util.ArrayList;
+class PrimeDirective{
+    //method to check num is prime == true
+  public boolean isPrime(int number){
+      if(number==2){
+      return true;
+    }else if(number<2){
+      return false;
+    }else{
+   for(int i=2;i<number;i++){
+     if(number%i==0){
+       return false;
+     }
+  }
+   return true;
+    }
+  }
+  //method to build array list of prime numbers
+  //returns arraylist of ints
+  //has param numbers which is int[]
+  public void onlyPrimes(int[] numbers){
+      ArrayList<Integer> onlyPrimesList = new ArrayList<>();
+      //iterate through numbers arr. sentinal = i start = 0 end = numbers.length change=1
+      for (int i=0;i<numbers.length;i++){
+          if (isPrime(numbers[i])==true){
+              onlyPrimesList.add(numbers[i]);
+            //   System.out.println(numbers[i] + " added");
+          }
+      }
+      onlyPrimesList.forEach(x -> {
+          System.out.println(x);
+      });
+
+  }
+  // Build a method that filters an array for odd or even numbers (bonus points if it can do either depending on arguments passed in!).
+  //Takes in int[] arg , String "odd" or "even"
+  //if conditional to determine functionality
+  //iterated through arr
+  //put filtered nums into ArrayList
+  //prints list
+  public void FilterOddEven(int arr[], String OddOrEven){
+    if(OddOrEven.toLowerCase().equals("even")){
+        //new ArrayList
+        ArrayList<Integer> evenList = new ArrayList<>();
+        //for to iterate arr and check if even
+        //sentinel = i  Start = 0  End = arr.length Change = 1
+        for(int i = 0; i<arr.length;i++){
+            //if arr[i] % 2 == 0 {
+            //  evenList.add(arr[i]);
+            //}
+            if(arr[i]%2==0){
+              //push to ArrayList
+                evenList.add(arr[i]);
+            }
+        }
+            //Print ArrayList
+        System.out.println(evenList);
+
+    }else if(OddOrEven.toLowerCase().equals("odd")){
+        //new ArrayList
+        ArrayList<Integer> oddList = new ArrayList<>();
+        //for to iterate arr and check if odd
+        //sentinel = i  Start = 0  End = arr.length Change = 1
+        for(int i = 0; i<arr.length;i++){
+            //if arr[i] % 3 == 0 {
+            //  oddList.add(arr[i]);
+            //}
+            if(arr[i]%2!=0){
+              //push to ArrayList
+                oddList.add(arr[i]);
+            }
+        }
+            //Print ArrayList
+            System.out.println(oddList);
+    }else System.out.println("Please choose \'odd\' or \'even\'");
+  }
+}
+
+public class App{
+  public static void main(String[] args) {
+
+    PrimeDirective pd = new PrimeDirective();
+    int[] numbers = {6, 29, 28, 33, 11, 100, 101, 43, 89};
+        
+       pd.onlyPrimes(numbers);
+       pd.FilterOddEven(numbers, "even");
+       pd.FilterOddEven(numbers, "odd");
+       pd.FilterOddEven(numbers, "osasdd");
+  }
+
+}
