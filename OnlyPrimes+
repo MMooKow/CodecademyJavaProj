@@ -1,13 +1,13 @@
 
 //Things add in:
-// 1) Build a method that returns an ArrayList of the first n primes in an array.
+
 // 2) Build a method that returns an ArrayList of the first n Fibonacci numbers.
 
 // Import statement:
 import java.util.ArrayList;
 class PrimeDirective{
     //method to check num is prime == true
-  public boolean isPrime(int number){
+  public static boolean isPrime(int number){
       if(number==2){
       return true;
     }else if(number<2){
@@ -24,19 +24,25 @@ class PrimeDirective{
   //method to build array list of prime numbers
   //returns arraylist of ints
   //has param numbers which is int[]
-  public void onlyPrimes(int[] numbers){
-      ArrayList<Integer> onlyPrimesList = new ArrayList<>();
-      //iterate through numbers arr. sentinal = i start = 0 end = numbers.length change=1
-      for (int i=0;i<numbers.length;i++){
-          if (isPrime(numbers[i])==true){
-              onlyPrimesList.add(numbers[i]);
-            //   System.out.println(numbers[i] + " added");
-          }
-      }
-      onlyPrimesList.forEach(x -> {
-          System.out.println(x);
-      });
+  //Allows usage of OnlyPrimes with only arr[] arg
+  public static void onlyPrimes(int[] numbers){
+    PrimeDirective.onlyPrimes(numbers, 0);
+  }
 
+  // 1) Build a method that returns an ArrayList of the first n primes in an array.
+  public static void onlyPrimes(int[] numbers, int numOfPrimes){
+    ArrayList<Integer> onlyPrimesList = new ArrayList<>();
+    //iterate through numbers arr. sentinal = i start = 0 end = numbers.length change=1
+    for (int i=0;i<numbers.length;i++){
+        if (isPrime(numbers[i])==true && onlyPrimesList.size() < numOfPrimes || isPrime(numbers[i])==true && numOfPrimes == 0){
+            onlyPrimesList.add(numbers[i]);
+          //   System.out.println(numbers[i] + " added");
+        }
+    }
+
+    onlyPrimesList.forEach(x -> {
+        System.out.println(x);
+    });
   }
   // Build a method that filters an array for odd or even numbers (bonus points if it can do either depending on arguments passed in!).
   //Takes in int[] arg , String "odd" or "even"
@@ -85,13 +91,13 @@ class PrimeDirective{
 public class App{
   public static void main(String[] args) {
 
-    PrimeDirective pd = new PrimeDirective();
     int[] numbers = {6, 29, 28, 33, 11, 100, 101, 43, 89};
         
-       pd.onlyPrimes(numbers);
-       pd.FilterOddEven(numbers, "even");
-       pd.FilterOddEven(numbers, "odd");
-       pd.FilterOddEven(numbers, "osasdd");
+       PrimeDirective.onlyPrimes(numbers, 3);
+       PrimeDirective.onlyPrimes(numbers);
+    //    PrimeDirective.FilterOddEven(numbers, "even");
+    //    PrimeDirective.FilterOddEven(numbers, "odd");
+    //    PrimeDirective.FilterOddEven(numbers, "osasdd");
   }
 
 }
