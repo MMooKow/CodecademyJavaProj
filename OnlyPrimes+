@@ -1,8 +1,3 @@
-
-//Things add in:
-
-// 2) Build a method that returns an ArrayList of the first n Fibonacci numbers.
-
 // Import statement:
 import java.util.ArrayList;
 class PrimeDirective{
@@ -86,6 +81,37 @@ class PrimeDirective{
             System.out.println(oddList);
     }else System.out.println("Please choose \'odd\' or \'even\'");
   }
+
+  // 2) Build a method that returns an ArrayList of the first n Fibonacci numbers.
+  //Method takes int for the number of numbers to be figured
+  //calculates the Fibonacci squence{
+  //    Needs 3 int vars. var1=firstNum  var2=secondNum var3=sumNum
+  //    Crate ArrayList to add numbers to then add numbers 0 and 1 to start
+  //    Make for loop. Sentinel = i Start = 0 End = numberOfNums Change = 1
+  //    for(int i = 0; i < numberOfNums; i++){
+  //        set firstNum to fibonacci(i)
+  //        set secondNum to fibonacci(i + 1)
+  //        sumNum = firstNum + secondNum
+  //        add sum to ArrayList
+  //   }
+  //    Print list outside for loop
+  //  }
+  public static void FibonacciSequ(int numberOfNums){
+    int firstNum;
+    int secondNum;
+    int sumNum;
+    ArrayList<Integer> fibonacciList = new ArrayList<>();
+    fibonacciList.add(0);
+    fibonacciList.add(1);
+    for(int i = 0; i < numberOfNums; i++){
+        //To figure Fibonacci, add first 2 nums together and ++ second num after
+        firstNum = fibonacciList.get(i);
+        secondNum = fibonacciList.get(i + 1);
+        sumNum = firstNum + secondNum;
+        fibonacciList.add(sumNum);
+    }
+    System.out.println(fibonacciList);
+  }
 }
 
 public class App{
@@ -94,10 +120,11 @@ public class App{
     int[] numbers = {6, 29, 28, 33, 11, 100, 101, 43, 89};
         
        PrimeDirective.onlyPrimes(numbers, 3);
-       PrimeDirective.onlyPrimes(numbers);
+    //   PrimeDirective.onlyPrimes(numbers);
     //    PrimeDirective.FilterOddEven(numbers, "even");
     //    PrimeDirective.FilterOddEven(numbers, "odd");
     //    PrimeDirective.FilterOddEven(numbers, "osasdd");
+    PrimeDirective.FibonacciSequ(15);
   }
 
 }
