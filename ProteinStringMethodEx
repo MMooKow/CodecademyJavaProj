@@ -1,0 +1,21 @@
+public class DNA{
+//Program to determine if a DNA seuqnce is a protein by looking for the start and stop codons and if divisible by 3
+
+  public static void main(String[] args){
+String dna1 = "ATGCGATACGCTTGA";
+String dna2 = "ATGCGATACGTGA";
+String dna3 = "ATTAATATGTACTGA";
+String dna = dna3;
+if(dna.indexOf("ATG") != -1 && dna.indexOf("TGA") != -1 && dna.length() % 3 == 0){
+  String protein = dna.substring(4, dna.length()-3);
+  System.out.println("Contains the protein {" + protein + "}");
+}else System.out.println("No protein");
+//ATG stats at 0
+//TAG starts at 12
+
+    //  -. .-.   .-. .-.   .
+    //    \   \ /   \   \ / 
+    //   / \   \   / \   \  
+    //  ~   `-~ `-`   `-~ `-
+  }
+}
